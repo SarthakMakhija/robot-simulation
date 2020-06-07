@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from typing import List
+
+from direction import Direction
 from position import Position
 
 
@@ -27,9 +30,8 @@ class Robot:
         self.__initial_position = self.__initial_position.down()
         return self
 
-    def move_in(self, direction: str) -> Robot:
-        for ch in direction:
-            if ch == 'L':
+    def move_in(self, directions: List[Direction]) -> Robot:
+        for direction in directions:
+            if direction == Direction.LEFT:
                 self.move_left()
         return self
-

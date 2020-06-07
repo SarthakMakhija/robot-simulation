@@ -1,5 +1,6 @@
 from unittest import TestCase
 
+from direction import Direction
 from position import Position
 from robot import Robot
 
@@ -51,5 +52,5 @@ class RobotTest(TestCase):
         Moves the robot left twice, given it has been initialized with a position
         """
         robot = Robot(initial_position=Position((10, 1)))
-        robot.move_in(direction="LL")
+        robot.move_in(directions=[Direction.LEFT, Direction.LEFT])
         self.assertEqual(Position((8, 1)), robot.positioned_at())
