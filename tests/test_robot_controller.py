@@ -33,7 +33,7 @@ class RobotControllerTest(TestCase):
         """
         robot = Robot(initial_position=Position((10, 1)))
         robot_controller = RobotController(robot=robot)
-        robot_controller.move_left()
+        robot_controller.move_robot_left()
 
         self.assertEqual(Position((9, 1)), robot.positioned_at())
 
@@ -43,7 +43,7 @@ class RobotControllerTest(TestCase):
         """
         robot = Robot(initial_position=Position((10, 1)))
         robot_controller = RobotController(robot=robot)
-        robot_controller.move_right()
+        robot_controller.move_robot_right()
 
         self.assertEqual(Position((11, 1)), robot.positioned_at())
 
@@ -53,7 +53,7 @@ class RobotControllerTest(TestCase):
         """
         robot = Robot(initial_position=Position((10, 1)))
         robot_controller = RobotController(robot=robot)
-        robot_controller.move_up()
+        robot_controller.move_robot_up()
 
         self.assertEqual(Position((10, 2)), robot.positioned_at())
 
@@ -63,6 +63,6 @@ class RobotControllerTest(TestCase):
         """
         robot = Robot(initial_position=Position((10, 1)))
         robot_controller = RobotController(robot=robot)
-        robot_controller.move_down()
+        robot_controller.move_robot_down()
 
         self.assertEqual(Position((10, 0)), robot.positioned_at())

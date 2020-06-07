@@ -15,16 +15,16 @@ class RobotController:
             Direction.DOWN: DownPositionCommand()
         }
 
-    def move_left(self):
+    def move_robot_left(self):
         self.__robot.accept([LeftPositionCommand()])
 
-    def move_right(self):
+    def move_robot_right(self):
         self.__robot.accept([RightPositionCommand()])
 
-    def move_up(self):
+    def move_robot_up(self):
         self.__robot.accept([UpPositionCommand()])
 
-    def move_down(self):
+    def move_robot_down(self):
         self.__robot.accept([DownPositionCommand()])
 
     def move_robot_in(self, directions: List[Direction]):
