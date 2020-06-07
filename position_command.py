@@ -11,19 +11,19 @@ class PositionCommand(ABC):
 
 class LeftPositionCommand(PositionCommand):
     def new_position(self, from_position: Position):
-        return from_position.left()
+        return from_position.new_position(lambda x_position, y_position: (x_position - 1, y_position))
 
 
 class RightPositionCommand(PositionCommand):
     def new_position(self, from_position: Position):
-        return from_position.right()
+        return from_position.new_position(lambda x_position, y_position: (x_position + 1, y_position))
 
 
 class UpPositionCommand(PositionCommand):
     def new_position(self, from_position: Position):
-        return from_position.up()
+        return from_position.new_position(lambda x_position, y_position: (x_position, y_position + 1))
 
 
 class DownPositionCommand(PositionCommand):
     def new_position(self, from_position: Position):
-        return from_position.down()
+        return from_position.new_position(lambda x_position, y_position: (x_position, y_position - 1))
