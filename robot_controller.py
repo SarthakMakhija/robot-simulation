@@ -7,6 +7,18 @@ class RobotController:
     def __init__(self, robot: Robot):
         self.__robot = robot
 
+    def move_left(self):
+        self.__robot.accept([LeftPositionCommand()])
+
+    def move_right(self):
+        self.__robot.accept([RightPositionCommand()])
+
+    def move_up(self):
+        self.__robot.accept([UpPositionCommand()])
+
+    def move_down(self):
+        self.__robot.accept([DownPositionCommand()])
+
     def move_robot_in(self, directions: [Direction]):
         position_commands = []
 
