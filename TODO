@@ -1,0 +1,17 @@
+A Robot is placed at an initial location in a hypothetical infinite grid.
+It receives some directions to move in the grid.
+Directions could be LEFT / RIGHT / UP / DOWN. A sample direction is LLRRUUD.
+On receiving a direction (as string probably?), it changes its position.
+Robot lets you ask its final position in (x,y) format.
+-------
+
+Tasks
+1) Move robot left
+2) Move robot right
+3) Move robot up
+4) Move robot down
+5) Set robot with an initial position
+6) Ask robot to move based on a series of directions
+7) Ensure directions can only be L/R/U/D (or even better?)
+8) Ask robot for its position
+9) Better name for test_robot.py?
