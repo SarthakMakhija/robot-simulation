@@ -8,6 +8,12 @@ from robot import Robot
 class RobotController:
     def __init__(self, robot: Robot):
         self.__robot = robot
+        self.__command_by_direction = {
+            Direction.LEFT: LeftPositionCommand(),
+            Direction.RIGHT: RightPositionCommand(),
+            Direction.UP: UpPositionCommand(),
+            Direction.DOWN: DownPositionCommand()
+        }
 
     def move_left(self):
         self.__robot.accept([LeftPositionCommand()])
@@ -25,13 +31,6 @@ class RobotController:
         position_commands = []
 
         for direction in directions:
-            if direction == Direction.LEFT:
-                position_commands.append(LeftPositionCommand())
-            elif direction == Direction.RIGHT:
-                position_commands.append(RightPositionCommand())
-            elif direction == Direction.UP:
-                position_commands.append(UpPositionCommand())
-            elif direction == Direction.DOWN:
-                position_commands.append(DownPositionCommand())
+            position_commands.append(self.__command_by_direction[direction])
 
         self.__robot.accept(position_commands)
