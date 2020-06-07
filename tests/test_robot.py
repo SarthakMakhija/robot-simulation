@@ -13,6 +13,10 @@ class Position:
         x_position, y_position = self.__value
         return Position((x_position - 1, y_position))
 
+    def right(self) -> Position:
+        x_position, y_position = self.__value
+        return Position((x_position + 1, y_position))
+
     def __eq__(self, other: Position) -> bool:
         return self.__value == other.__value
 
@@ -27,6 +31,10 @@ class Robot:
 
     def move_left(self) -> Robot:
         self.__initial_position = self.__initial_position.left()
+        return self
+
+    def move_right(self):
+        self.__initial_position = self.__initial_position.right()
         return self
 
 
@@ -47,3 +55,11 @@ class RobotTest(TestCase):
         robot = Robot(initial_position=Position((10, 1)))
         robot.move_left()
         self.assertEqual(Position((9, 1)), robot.positioned_at())
+
+    def test_move_robot_right(self):
+        """
+        Moves the robot right, given it has been initialized with a position
+        """
+        robot = Robot(initial_position=Position((10, 1)))
+        robot.move_right()
+        self.assertEqual(Position((11, 1)), robot.positioned_at())
