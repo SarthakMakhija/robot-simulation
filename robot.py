@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import List
 
-from direction import Direction
 from position import Position
+from position_command import PositionCommand
 
 
 class Robot:
@@ -30,14 +30,6 @@ class Robot:
         self.__initial_position = self.__initial_position.down()
         return self
 
-    def move_in(self, directions: List[Direction]) -> Robot:
-        for instruction in self.__move_instructions(directions):
-            instruction()
-        return self
-
-    def __move_instructions(self, directions: List[Direction]):
-        instructions = []
-        for direction in directions:
-            if direction == Direction.LEFT:
-                instructions.append(lambda: self.move_left())
-        return instructions
+    def accept(self, position_commands: List[PositionCommand]):
+        for command in position_commands:
+            self.__initial_position = command.new_position(self.__initial_position)
