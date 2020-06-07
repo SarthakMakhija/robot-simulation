@@ -28,9 +28,5 @@ class RobotController:
         self.__robot.accept([DownPositionCommand()])
 
     def move_robot_in(self, directions: List[Direction]):
-        position_commands = []
-
-        for direction in directions:
-            position_commands.append(self.__command_by_direction[direction])
-
+        position_commands = [self.__command_by_direction[direction] for direction in directions]
         self.__robot.accept(position_commands)
