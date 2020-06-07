@@ -10,8 +10,9 @@ Tasks
 2) Move robot right
 3) Move robot up
 4) Move robot down
-5) Set robot with an initial position
+5) Set robot with an initial position :: done
 6) Ask robot to move based on a series of directions
 7) Ensure directions can only be L/R/U/D (or even better?)
-8) Ask robot for its position
+8) Ask robot for its position :: done
 9) Better name for test_robot.py?
+10) Confirm if move_left should be returning a Robot instance
