@@ -10,10 +10,11 @@ class Robot:
 
     def __init__(self, initial_position: Position):
         self.__initial_position = initial_position
+        self.__current_position = initial_position
 
     def positioned_at(self) -> Position:
-        return self.__initial_position
+        return self.__current_position
 
     def accept(self, position_commands: List[PositionCommand]):
         for command in position_commands:
-            self.__initial_position = command.new_position(self.__initial_position)
+            self.__current_position = command.new_position(self.__current_position)
