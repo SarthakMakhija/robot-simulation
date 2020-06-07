@@ -1,57 +1,7 @@
-from __future__ import annotations
-
-from typing import Tuple, Callable
 from unittest import TestCase
 
-
-class Position:
-
-    def __init__(self, value: Tuple[int, int]):
-        self.__value = value
-
-    def left(self) -> Position:
-        return self.__new_position(lambda x_position, y_position: (x_position - 1, y_position))
-
-    def right(self) -> Position:
-        return self.__new_position(lambda x_position, y_position: (x_position + 1, y_position))
-
-    def up(self) -> Position:
-        return self.__new_position(lambda x_position, y_position: (x_position, y_position + 1))
-
-    def down(self) -> Position:
-        return self.__new_position(lambda x_position, y_position: (x_position, y_position - 1))
-
-    def __new_position(self, func: Callable[[int, int], Tuple[int, int]]) -> Position:
-        x_position, y_position = self.__value
-        return Position(func(x_position, y_position))
-
-    def __eq__(self, other: Position) -> bool:
-        return self.__value == other.__value
-
-
-class Robot:
-
-    def __init__(self, initial_position: Position):
-        self.__initial_position = initial_position
-
-    def positioned_at(self) -> Position:
-        return self.__initial_position
-
-    def move_left(self) -> Robot:
-        self.__initial_position = self.__initial_position.left()
-        return self
-
-    def move_right(self):
-        self.__initial_position = self.__initial_position.right()
-        return self
-
-    def move_up(self):
-        self.__initial_position = self.__initial_position.up()
-        return self
-
-    def move_down(self):
-        self.__initial_position = self.__initial_position.down()
-        return self
+from position import Position
+from robot import Robot
 
 
 class RobotTest(TestCase):
