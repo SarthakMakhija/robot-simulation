@@ -1,19 +1,32 @@
 from __future__ import annotations
+
 from typing import Tuple
 from unittest import TestCase
+
+
+class Position:
+
+    def __init__(self, value: Tuple[int, int]):
+        self.__value = value
+
+    def left(self) -> Position:
+        x_position, y_position = self.__value
+        return Position((x_position - 1, y_position))
+
+    def __eq__(self, other: Position) -> bool:
+        return self.__value == other.__value
 
 
 class Robot:
 
     def __init__(self, initial_position: Tuple[int, int]):
-        self.__initial_position = initial_position
+        self.__initial_position = Position(initial_position)
 
-    def positioned_at(self) -> Tuple[int, int]:
+    def positioned_at(self) -> Position:
         return self.__initial_position
 
     def move_left(self) -> Robot:
-        x_position, y_position = self.__initial_position
-        self.__initial_position = (x_position - 1, y_position)
+        self.__initial_position = self.__initial_position.left()
         return self
 
 
@@ -25,7 +38,7 @@ class RobotTest(TestCase):
         """
         robot = Robot(initial_position=(10, 1))
         initial_position = robot.positioned_at()
-        self.assertEqual((10, 1), initial_position)
+        self.assertEqual(Position((10, 1)), initial_position)
 
     def test_move_robot_left(self):
         """
@@ -33,4 +46,4 @@ class RobotTest(TestCase):
         """
         robot = Robot(initial_position=(10, 1))
         robot.move_left()
-        self.assertEqual((9, 1), robot.positioned_at())
+        self.assertEqual(Position((9, 1)), robot.positioned_at())
