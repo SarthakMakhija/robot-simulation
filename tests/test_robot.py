@@ -19,8 +19,8 @@ class Position:
 
 class Robot:
 
-    def __init__(self, initial_position: Tuple[int, int]):
-        self.__initial_position = Position(initial_position)
+    def __init__(self, initial_position: Position):
+        self.__initial_position = initial_position
 
     def positioned_at(self) -> Position:
         return self.__initial_position
@@ -36,7 +36,7 @@ class RobotTest(TestCase):
         """
         Sets initial position for robot
         """
-        robot = Robot(initial_position=(10, 1))
+        robot = Robot(initial_position=Position((10, 1)))
         initial_position = robot.positioned_at()
         self.assertEqual(Position((10, 1)), initial_position)
 
@@ -44,6 +44,6 @@ class RobotTest(TestCase):
         """
         Moves the robot left, given it has been initialized with a position
         """
-        robot = Robot(initial_position=(10, 1))
+        robot = Robot(initial_position=Position((10, 1)))
         robot.move_left()
         self.assertEqual(Position((9, 1)), robot.positioned_at())
