@@ -18,6 +18,9 @@ class Position:
     def up(self) -> Position:
         return self.__new_position(lambda x_position, y_position: (x_position, y_position + 1))
 
+    def down(self) -> Position:
+        return self.__new_position(lambda x_position, y_position: (x_position, y_position - 1))
+
     def __new_position(self, func: Callable[[int, int], Tuple[int, int]]) -> Position:
         x_position, y_position = self.__value
         return Position(func(x_position, y_position))
@@ -44,6 +47,10 @@ class Robot:
 
     def move_up(self):
         self.__initial_position = self.__initial_position.up()
+        return self
+
+    def move_down(self):
+        self.__initial_position = self.__initial_position.down()
         return self
 
 
@@ -80,3 +87,11 @@ class RobotTest(TestCase):
         robot = Robot(initial_position=Position((10, 1)))
         robot.move_up()
         self.assertEqual(Position((10, 2)), robot.positioned_at())
+
+    def test_move_robot_down(self):
+        """
+        Moves the robot down, given it has been initialized with a position
+        """
+        robot = Robot(initial_position=Position((10, 1)))
+        robot.move_down()
+        self.assertEqual(Position((10, 0)), robot.positioned_at())
