@@ -17,7 +17,7 @@ Tasks
 9) Better name for test_robot.py?
 10) Confirm if move_left should be returning a Robot instance :: done, controller does not return anything
 11) Introduce Position :: done
-12) Should there be __initial_position and current position ??
+12) Should there be __initial_position and current position ?? :: done
 13) Remove duplication in position :: done
 14) Remove duplication in robot :: NA
 15) Better name for func in __new_position?? :: NA
