@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Tuple
+from typing import Tuple, Callable
 from unittest import TestCase
 
 
@@ -10,16 +10,17 @@ class Position:
         self.__value = value
 
     def left(self) -> Position:
-        x_position, y_position = self.__value
-        return Position((x_position - 1, y_position))
+        return self.__new_position(lambda x_position, y_position: (x_position - 1, y_position))
 
     def right(self) -> Position:
-        x_position, y_position = self.__value
-        return Position((x_position + 1, y_position))
+        return self.__new_position(lambda x_position, y_position: (x_position + 1, y_position))
 
     def up(self) -> Position:
+        return self.__new_position(lambda x_position, y_position: (x_position, y_position + 1))
+
+    def __new_position(self, func: Callable[[int, int], Tuple[int, int]]) -> Position:
         x_position, y_position = self.__value
-        return Position((x_position, y_position + 1))
+        return Position(func(x_position, y_position))
 
     def __eq__(self, other: Position) -> bool:
         return self.__value == other.__value
