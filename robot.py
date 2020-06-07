@@ -31,7 +31,13 @@ class Robot:
         return self
 
     def move_in(self, directions: List[Direction]) -> Robot:
+        for instruction in self.__move_instructions(directions):
+            instruction()
+        return self
+
+    def __move_instructions(self, directions: List[Direction]):
+        instructions = []
         for direction in directions:
             if direction == Direction.LEFT:
-                self.move_left()
-        return self
+                instructions.append(lambda: self.move_left())
+        return instructions
