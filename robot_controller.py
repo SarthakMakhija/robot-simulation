@@ -1,3 +1,5 @@
+from typing import List
+
 from direction import Direction
 from position_command import LeftPositionCommand, RightPositionCommand, UpPositionCommand, DownPositionCommand
 from robot import Robot
@@ -19,7 +21,7 @@ class RobotController:
     def move_down(self):
         self.__robot.accept([DownPositionCommand()])
 
-    def move_robot_in(self, directions: [Direction]):
+    def move_robot_in(self, directions: List[Direction]):
         position_commands = []
 
         for direction in directions:
