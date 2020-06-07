@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from position import Position
 
 
@@ -25,3 +26,10 @@ class Robot:
     def move_down(self) -> Robot:
         self.__initial_position = self.__initial_position.down()
         return self
+
+    def move_in(self, direction: str) -> Robot:
+        for ch in direction:
+            if ch == 'L':
+                self.move_left()
+        return self
+
