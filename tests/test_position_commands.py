@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from position import Position
-from position_command import LeftPositionCommand, RightPositionCommand, UpPositionCommand, DownPositionCommand
+from model.position import Position
+from command.position_command import LeftPositionCommand, RightPositionCommand, UpPositionCommand, DownPositionCommand
 
 
 class PositionTest(TestCase):

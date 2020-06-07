@@ -1,8 +1,9 @@
 A Robot is placed at an initial location in a hypothetical infinite grid.
 It receives some directions to move in the grid.
 Directions could be LEFT / RIGHT / UP / DOWN. A sample direction is LLRRUUD.
-On receiving a direction (as string probably?), it changes its position.
+On receiving a direction, it changes its position.
 Robot lets you ask its final position in (x,y) format.
+Robot can also move in just one direction, Left Or Right or Up or Down.
 -------
 
 Tasks

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import List
 
-from position import Position
-from position_command import PositionCommand
+from model.position import Position
+from command.position_command import PositionCommand
 
 
 class Robot:

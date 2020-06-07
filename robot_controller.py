@@ -1,8 +1,8 @@
 from typing import List
 
-from direction import Direction
-from position_command import LeftPositionCommand, RightPositionCommand, UpPositionCommand, DownPositionCommand
-from robot import Robot
+from model.direction import Direction
+from command.position_command import LeftPositionCommand, RightPositionCommand, UpPositionCommand, DownPositionCommand
+from model.robot import Robot
 
 
 class RobotController:

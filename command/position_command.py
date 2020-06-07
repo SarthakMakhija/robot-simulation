@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from position import Position
+from model.position import Position
 
 
 class PositionCommand(ABC):

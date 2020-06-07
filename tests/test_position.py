@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from position import Position
+from model.position import Position
 
 
 class PositionTest(TestCase):

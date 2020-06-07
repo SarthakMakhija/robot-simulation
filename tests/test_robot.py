@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from position import Position
-from position_command import LeftPositionCommand
-from robot import Robot
+from model.position import Position
+from command.position_command import LeftPositionCommand
+from model.robot import Robot
 
 
 class RobotTest(TestCase):

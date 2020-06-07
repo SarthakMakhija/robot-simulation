@@ -1,9 +1,9 @@
 from unittest import TestCase
 
 from robot_controller import RobotController
-from direction import Direction
-from position import Position
-from robot import Robot
+from model.direction import Direction
+from model.position import Position
+from model.robot import Robot
 
 
 class RobotControllerTest(TestCase):
