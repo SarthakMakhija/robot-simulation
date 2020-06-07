@@ -6,13 +6,20 @@ Robot lets you ask its final position in (x,y) format.
 -------
 
 Tasks
-1) Move robot left
-2) Move robot right
-3) Move robot up
-4) Move robot down
+1) Move robot left :: done
+2) Move robot right :: done
+3) Move robot up :: done
+4) Move robot down :: done
 5) Set robot with an initial position :: done
-6) Ask robot to move based on a series of directions
-7) Ensure directions can only be L/R/U/D (or even better?)
+6) Ask robot to move based on a series of directions :: done
+7) Ensure directions can only be L/R/U/D (or even better?) :: done
 8) Ask robot for its position :: done
 9) Better name for test_robot.py?
-10) Confirm if move_left should be returning a Robot instance
+10) Confirm if move_left should be returning a Robot instance :: done, controller does not return anything
+11) Introduce Position :: done
+12) Should there be __initial_position and current position ??
+13) Remove duplication in position :: done
+14) Remove duplication in robot :: NA
+15) Better name for func in __new_position?? :: NA
+16) Move classes in src/modules :: done
+17) Tests for position :: done

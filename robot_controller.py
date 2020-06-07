@@ -25,11 +25,11 @@ class RobotController:
         for direction in directions:
             if direction == Direction.LEFT:
                 position_commands.append(LeftPositionCommand())
-            if direction == Direction.RIGHT:
+            elif direction == Direction.RIGHT:
                 position_commands.append(RightPositionCommand())
-            if direction == Direction.UP:
+            elif direction == Direction.UP:
                 position_commands.append(UpPositionCommand())
-            if direction == Direction.DOWN:
+            elif direction == Direction.DOWN:
                 position_commands.append(DownPositionCommand())
 
         self.__robot.accept(position_commands)
